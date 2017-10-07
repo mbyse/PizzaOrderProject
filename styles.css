@@ -1,0 +1,144 @@
+/*Menu form sections*/
+
+body {
+	font-family: 'Roboto', sans-serif;
+	color:#3C1518;	
+}
+
+#branding {
+	margin-top: 5%;
+	margin-bottom: 5%;
+	margin-left: auto;
+	margin-right: auto;
+}	
+
+h1, h2, h3, p {
+	text-align: center;
+	padding-top: 5%;
+}
+
+img {
+	max-width:500px;
+	border: 2px solid #3C1518;
+	border-radius: 10px;
+	margin-left: auto;
+	margin-right: auto;
+	display: block;
+	
+}
+
+#orderForm {
+	padding-top: 2%;
+	padding-bottom: 2%;
+	border: 20px solid #58751D;
+	border-radius: 10px;
+	max-width: 300px; 
+	margin-top: 0;
+	margin-bottom: 5%;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.table {
+	
+	border: 5px solid #761F0A;
+	border-radius: 10px;
+	background-color: #FBC68B;
+	padding: 0% 0% 2% 2%;
+	font-size: 100%;
+	max-width: 215px; 
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.table:hover {
+	box-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+}
+
+legend {
+	font-family: 'Catamaran', sans-serif;
+	font-weight: bold;
+	font-size: 125%;
+}
+
+#submit {
+	color: white;
+	background-color: #761F0A;
+	font-family: 'Catamaran', sans-serif;
+	font-size: 1.4em;
+	text-shadow: 4px 1px 4px rgba(0,0,0,0.8);
+	border-width: 1px;
+	border-color: #D65D08;
+	border-radius: 10px;
+	padding: 4%;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+#submit:hover {
+	box-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+	
+}
+
+
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content/Box */
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto; /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    max-width: 80%; /* Could be more or less, depending on screen size */
+}
+
+/* Modal Table */
+table {
+	border-collapse: collapse;
+	margin-left: auto;
+	margin-right: auto;
+	
+}
+
+tr {
+	margin: 10px;
+}
+
+th, td {
+	text-align: left;
+	border: 1px solid #000;
+	padding: 10px;
+}
+
+
+tr:last-child {
+	font-size: 1em;
+	background-color:#FBC68B; 
+}
+
+/* The Close Button */
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}

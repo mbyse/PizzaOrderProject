@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+	<title>Pizza! Order Now</title>
+	
+	<meta charset="utf-8">
+	<link rel="stylesheet" href="./styles.css">
+	<link href="https://fonts.googleapis.com/css?family=Catamaran:800|Roboto:500" rel="stylesheet">
+</head>
+
+<body>
+	<div id="branding">
+		<h1>WoodFired Pizza Co.</h1>
+		<image src="https://cdn.pixabay.com/photo/2017/07/25/09/08/pizza-oven-2537308_960_720.jpg" alt="wood fired pizza"> 
+	</div>
+	<h2>Place Your Order Below:</h2>
+	<div id="orderForm">	
+		<form id="menu">
+		<!--pizza size, select 1, radio-->
+		<div class="table">
+			<legend>Choose your size:</legend>
+			<input type="radio" name="size" value="Personal" checked="checked"> Personal <br>
+			<input type="radio" name="size" value="Medium"> Medium <br>
+			<input type="radio" name="size" value="Large"> Large <br>
+			<input type="radio" name="size" value="Extra Large"> Extra Large <br>
+		</div>
+		<br>
+		<!--cheese, select 1, radio-->
+		<div class="table">
+			<legend>Choose your cheese:</legend>
+			<input type="radio" name="cheese" value="Regular Cheese" checked="checked"> Regular <br>
+			<input type="radio" name="cheese" value="No Cheese"> No Cheese <br>
+			<input type="radio" name="cheese" value="Extra Cheese"> Extra Cheese <br>
+		</div>
+		<br>
+
+		<!--crust, select 1, radio-->
+		<div class="table">
+			<legend>Choose your crust:</legend>
+			<input type="radio" name="crust" value="Plain Crust" checked="checked"> Plain Crust <br>
+			<input type="radio" name="crust" value="Garlic Butter Crust"> Garlic Butter Crust <br>
+			<input type="radio" name="crust" value="Cheese Stuffed Crust"> Cheese Stuffed Crust <br>
+			<input type="radio" name="crust" value="Spicy Crust"> Spicy Crust <br>
+			<input type="radio" name="crust" value="House Special Crust"> House Special Crust <br>
+		</div>
+		<br>
+
+		<!--sauce, select 1, radio-->
+		<div class="table">
+			<legend>Choose your sauce:</legend>
+			<input type="radio" name="sauce" value="Marinara Sauce" checked="checked"> Marinara Sauce <br>
+			<input type="radio" name="sauce" value="White Sauce"> White Sauce <br>
+			<input type="radio" name="sauce" value="Barbeque Sauce"> Barbeque Sauce <br>
+			<input type="radio" name="sauce" value="No Sauce"> No Sauce <br>
+		</div>
+		<br>
+
+		<!--meat, select multiple, check box-->
+		<div class="table">
+			<legend>Select your meats:</legend>
+			<input type="checkbox" name="meat" value="Pepperoni" checked="checked"> Pepperoni <br>
+			<input type="checkbox" name="meat" value="Sausage"> Sausage <br>
+			<input type="checkbox" name="meat" value="Canadian Bacon"> Canadian Bacon <br>
+			<input type="checkbox" name="meat" value="Ground Beef"> Ground Beef <br>
+			<input type="checkbox" name="meat" value="Anchovy"> Anchovy <br>
+			<input type="checkbox" name="meat" value="Chicken"> Chicken <br>
+		</div>
+		<br>
+
+		<!--veggies, select multiple, check box-->
+		<div class="table">
+			<legend>Select your veggies:</legend>
+			<input type="checkbox" name="veggies" value="Tomatoes" checked="checked"> Tomatoes <br>
+			<input type="checkbox" name="veggies" value="Onions"> Onions <br>
+			<input type="checkbox" name="veggies" value="Olives"> Olives <br>
+			<input type="checkbox" name="veggies" value="Green Peppers"> Green Peppers <br>
+			<input type="checkbox" name="veggies" value="Mushrooms"> Mushrooms <br>
+			<input type="checkbox" name="veggies" value="Pineapple"> Pineapple <br>
+			<input type="checkbox" name="veggies" value="Spinach"> Spinach <br>
+			<input type="checkbox" name="veggies" value="Jalape&#241;o"> Jalape&#241;o <br>
+		</div>
+		</form>	
+		<br>
+		<!--Trigger Modal-->
+		<!--button needs to be outside <form> to work properly-->
+		<button id="submit" onclick="modalOn()">Submit Order</button>
+	</div>	
+		
+		<div id="myModal" class="modal">
+			<div class="modal-content">
+				<header class="modal-header">
+					<span class="close" onclick="modalOff()">&times;</span>
+					<h1 style="border-bottom: 2px solid #D65D08;">Order Receipt</h1>
+					
+				</header>
+				<div>
+					<table class="modal-table">
+						<thead>
+							<tr>
+								<th>Your Selections</th>
+								<th>Charge</th>
+							</tr>
+						</thead>
+						<tbody id="receipt">
+						</tbody>
+					</table>
+					<p>Thanks for your order!</p>
+					<h3 style="border-top: 2px solid #D65D08;">WoodFired Pizza Co.</h3>
+				</div>
+			</div>
+		</div>
+
+	
+	<!--Script-->
+	<script language=javascript>
+	function modalOn() {
+		document.getElementById("myModal").style.display = "block";
+		var form = document.getElementById("menu");
+		var i;
+		var size = [];
+		var cheese = [];
+		var crust = [];
+		var sauce = [];
+		var meat = [];
+		var veggies = [];
+		var sizeP;
+		var cheeseP;
+		var crustP;
+		var sauceP;
+		var meatP;
+		var veggiesP;
+		for (i = 0; i < form.length; i++) {
+			if (form[i].checked && form[i].name == "size") {
+				size.push(form[i].value);
+				if (form[i].value == "Personal") {
+					sizeP = 6;}
+				else if (form[i].value == "Medium") {
+					sizeP = 10;}
+				else if (form[i].value == "Large") {
+					sizeP = 14;}	
+				else if (form[i].value == "Extra Large") {
+					sizeP = 16;};
+			};
+			if (form[i].checked && form[i].name == "cheese") { 
+				cheese.push(form[i].value);
+				if (form[i].value == "Extra Cheese") {
+					cheeseP = 3;}
+				else {
+					cheeseP = 0;};
+			};
+			if (form[i].checked && form[i].name == "crust") {
+				crust.push(form[i].value);
+				if (form[i].value == "Cheese Stuffed Crust") {
+					crustP = 3;}
+				else {
+					crustP = 0;};
+			};				
+			if (form[i].checked && form[i].name == "sauce") {
+				sauce.push(form[i].value);
+				sauceP = 0;
+			};
+			if (form[i].checked && form[i].name == "meat") {
+				meat.push(form[i].value);
+					meatP = meat.length - 1;
+			};
+			if (form[i].checked && form[i].name == "veggies") {
+				veggies.push(form[i].value);
+					veggiesP = veggies.length - 1;
+			};
+		};
+		var totalP = sizeP + cheeseP + crustP + sauceP + meatP + veggiesP;
+		
+		document.getElementById("receipt").innerHTML = 
+			"<tr>"+"<td>"+size+"</td>"+"<td>"+"&#36;"+sizeP+"</td>" +"</tr>"+
+			"<tr>"+"<td>"+cheese+"</td>"+"<td>"+"&#36;"+cheeseP+"</td>" +"</tr>"+
+			"<tr>"+"<td>"+crust+"</td>"+"<td>"+"&#36;"+crustP+"</td>" +"</tr>"+
+			"<tr>"+"<td>"+sauce+"</td>"+"<td>"+"&#36;"+sauceP+"</td>" +"</tr>"+
+			"<tr>"+"<td>"+meat+"</td>"+"<td>"+"&#36;"+meatP+"</td>" +"</tr>"+
+			"<tr>"+"<td>"+veggies+"</td>"+"<td>"+"&#36;"+veggiesP+"</td>" +"</tr>"+
+			"<tr>"+"<td>"+"Order Total"+"</td>"+"<td>"+"&#36;"+totalP+"</td>" +"</tr>";
+	};
+
+	function modalOff() {
+		document.getElementById("myModal").style.display = "none";
+	};
+	
+	</script>
+	
+</div>
+</body>
+</html>    
+	
